@@ -1,0 +1,141 @@
+* {
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+}
+
+body {
+    background-color: black;
+    background-image: url("../img/background.avif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* or "contain" if you want it fully visible */
+    
+    height: 200px; /* set your specific height here */
+}
+
+nav {
+    position: sticky;
+    /* makes it stick on scroll */
+    top: 30px;
+    /* small gap from top */
+    z-index: 100;
+    /* ensures it stays above other content */
+    margin: 0 auto;
+    /* horizontal centering */
+    max-width: 1000px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    /* 🔥 important */
+    align-items: center;
+    gap: 40px;
+    padding: 5px 40px;
+    border-radius: 20px;
+
+    margin: 30px auto;
+    /* 🔥 centers horizontally */
+
+    background-color: rgba(255, 255, 255, 0.082);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    /* also fixed 'solid' */
+}
+
+nav a {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    transform: all 0.3s ease;
+}
+
+
+nav a img {
+    height: 45px;
+    /* adjust based on your navbar height */
+    width: auto;
+    display: flex;
+    align-items: left;
+}
+
+nav button {
+    letter-spacing: 1px;
+    font-size: large;
+    font-weight: bold;
+    width: auto;
+    height: 40px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    background: rgba(255, 255, 255, 0.041);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+
+    display: flex;
+    /* added */
+    align-items: center;
+    /* vertical center */
+    justify-content: center;
+    /* horizontal center */
+    text-align: center;
+    /* fallback */
+}
+
+nav button:hover {
+    color: white;
+    /* keep text white */
+    background: rgba(255, 255, 255, 0.08);
+    /* optional: slightly brighter background on hover */
+}
+
+header {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    margin: 100px;
+    /* remove margin */
+    padding: 0;
+    /* remove padding */
+}
+
+.download {
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: large;
+    font-weight: bold;
+    width: auto;
+    height: 40px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    background: rgba(255, 255, 255, 0.041);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.download:hover {
+    color: white;
+    /* keep text white */
+    background: rgba(255, 255, 255, 0.08);
+    /* optional: slightly brighter background on hover */
+}
+
+section{
+        margin: 150px;
+    /* remove margin */
+    padding: 0;
+    /* remove padding */
+        align-items: center;
+    /* vertical center */
+    justify-content: center;
+    /* horizontal center */
+    text-align: center;
+}
