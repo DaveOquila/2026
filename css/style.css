@@ -4,12 +4,6 @@
 
 body {
     background-color: black;
-    background-image: url("../img/background.avif");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; /* or "contain" if you want it fully visible */
-    
-    height: 200px; /* set your specific height here */
 }
 
 nav {
@@ -48,94 +42,218 @@ nav a {
     color: white;
     font-weight: bolder;
     font-size: 1.1rem;
+    /* fixed font size */
     padding: 10px 18px;
-    transform: all 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+    display: inline-block;
+    /* needed for transform to behave correctly */
+}
+
+/* hover effect: scale + glow */
+nav a:hover {
+    transform: scale(1.2);
+    /* visually enlarges text without jitter */
+    color: #f2f40a;
+    text-shadow: 0 0 8px #f2f40a, 0 0 12px #f2f40a;
 }
 
 
 nav a img {
     height: 45px;
-    /* adjust based on your navbar height */
     width: auto;
     display: flex;
     align-items: left;
 }
 
-nav button {
-    letter-spacing: 1px;
-    font-size: large;
-    font-weight: bold;
-    width: auto;
-    height: 40px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: white;
-    background: rgba(255, 255, 255, 0.041);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-
+nav .download {
+    position: relative;
     display: flex;
-    /* added */
-    align-items: center;
-    /* vertical center */
+    /* use flex for centering */
     justify-content: center;
     /* horizontal center */
+    align-items: center;
+    /* vertical center */
+    overflow: hidden;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: medium;
+    font-weight: bold;
+    height: 40px;
+    padding: 10px 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), inset 0 0 8px rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
-    /* fallback */
+    /* fallback for extra safety */
 }
 
-nav button:hover {
-    color: white;
-    /* keep text white */
+/* hover effect */
+nav .download:hover {
+    transform: scale(1.12) rotateX(2deg) rotateY(2deg);
     background: rgba(255, 255, 255, 0.08);
-    /* optional: slightly brighter background on hover */
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.12);
+}
+
+/* subtle liquid ripple effect */
+nav .download::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.6s;
+    border-radius: 50%;
+}
+
+nav .download:hover::after {
+    opacity: 1;
+    transform: scale(0.7);
+    transition: all 0.6s;
 }
 
 header {
     font-family: 'Inter', sans-serif;
     color: white;
-    margin: 100px;
+    margin: auto;
     /* remove margin */
-    padding: 0;
+    padding-left: 14rem;
     /* remove padding */
+        background-image: url("../img/background.avif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* or "contain" if you want it fully visible */
+
+    height: 2000px;
+    /* set your specific height here */
 }
 
 .download {
+    position: relative;
+    overflow: hidden;
     text-decoration: none;
     letter-spacing: 1px;
     font-size: large;
     font-weight: bold;
     width: auto;
-    height: 40px;
-    padding: 10px 20px;
-    border-radius: 5px;
+    height: 50px;
+    padding: 12px 25px;
+    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: white;
-    background: rgba(255, 255, 255, 0.041);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.1);
     cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* liquid-like hover with soft motion */
 .download:hover {
-    color: white;
-    /* keep text white */
+    transform: scale(1.15) rotateX(2deg) rotateY(2deg);
     background: rgba(255, 255, 255, 0.08);
-    /* optional: slightly brighter background on hover */
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
-section{
-        margin: 150px;
+/* subtle liquid ripple effect */
+.download::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.6s;
+    border-radius: 50%;
+}
+
+.download:hover::after {
+    opacity: 1;
+    transform: scale(0.7);
+    transition: all 0.6s;
+}
+
+section {
+    margin: 120px;
     /* remove margin */
     padding: 0;
     /* remove padding */
-        align-items: center;
+    align-items: center;
     /* vertical center */
     justify-content: center;
     /* horizontal center */
     text-align: center;
+}
+
+header h5 {
+    color: #f2f40a;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    padding: 0%;
+    margin: 0%;
+}
+
+header h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+
+    /* mostly gold with subtle highlights */
+    background: linear-gradient(45deg,
+            #f2f40a 0%,
+            #f2f40a 40%,
+            #ffffff 50%,
+            #f2f40a 60%,
+            #f2f40a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    /* subtle metallic shine glow */
+    text-shadow:
+        0 0 3px rgba(255, 255, 255, 0.15),
+        0 0 6px rgba(255, 255, 255, 0.1);
+
+    /* remove vertical gaps */
+    margin-top: 0.2em;
+    /* small top margin */
+    margin-bottom: 0.2em;
+    /* small bottom margin */
+    padding: 0;
+}
+
+section h1 {
+    font-style: italic;
+    color: #f2f40a;
+    font-size: 8rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+
+    line-height: 0.8;          /* compress vertical space */
+    display: block;           /* ensures no extra inline spacing */
+}
+
+section p {
+    padding: 0%;
+    margin: 0%;
+    color: white;
 }
